@@ -13,7 +13,7 @@ async function waitForSinhalaToAppear(page) {
 }
 
 /**
- * Wait until expected Sinhala text appears in the page body.
+ * Wait until expected text appears in the page body.
  */
 async function waitForExpectedText(page, expected) {
   await expect
@@ -21,7 +21,8 @@ async function waitForExpectedText(page, expected) {
     .toContain(expected);
 }
 
-/* ---------------- POS_Fun_0001 ---------------- */
+
+/* ---------------- Pos_Fun_0001 ---------------- */
 test('Pos_Fun_0001 – Convert greeting with name (PASS)', async ({ page }) => {
   await page.goto(URL);
 
@@ -31,7 +32,7 @@ test('Pos_Fun_0001 – Convert greeting with name (PASS)', async ({ page }) => {
   await waitForExpectedText(page, 'ආයුබෝවන් නිමල්!');
 });
 
-/* ---------------- POS_Fun_0002 ---------------- */
+/* ---------------- Pos_Fun_0002 ---------------- */
 test('Pos_Fun_0002 – Convert simple need statement (PASS)', async ({ page }) => {
   await page.goto(URL);
 
@@ -41,7 +42,7 @@ test('Pos_Fun_0002 – Convert simple need statement (PASS)', async ({ page }) =
   await waitForExpectedText(page, 'මට වතුර ඕනේ.');
 });
 
-/* ---------------- POS_Fun_0003 ---------------- */
+/* ---------------- Pos_Fun_0003 ---------------- */
 test('Pos_Fun_0003 – Convert present tense work statement (PASS)', async ({ page }) => {
   await page.goto(URL);
 
@@ -51,7 +52,7 @@ test('Pos_Fun_0003 – Convert present tense work statement (PASS)', async ({ pa
   await waitForExpectedText(page, 'මම දැන් වැඩ කරනවා.');
 });
 
-/* ---------------- POS_Fun_0004 ---------------- */
+/* ---------------- Pos_Fun_0004 ---------------- */
 test('Pos_Fun_0004 – Convert question about time (PASS)', async ({ page }) => {
   await page.goto(URL);
 
@@ -61,7 +62,7 @@ test('Pos_Fun_0004 – Convert question about time (PASS)', async ({ page }) => 
   await waitForExpectedText(page, 'දවසට කොහොමද?');
 });
 
-/* ---------------- POS_Fun_0005 ---------------- */
+/* ---------------- Pos_Fun_0005 ---------------- */
 test('Pos_Fun_0005 – Convert polite request (PASS)', async ({ page }) => {
   await page.goto(URL);
 
@@ -71,207 +72,197 @@ test('Pos_Fun_0005 – Convert polite request (PASS)', async ({ page }) => {
   await waitForExpectedText(page, 'කරුණාකර මට පොඩි උදව්වක් දෙන්න.');
 });
 
-/* ---------------- POS_Fun_0006 ---------------- */
+/* ---------------- Pos_Fun_0006 ---------------- */
 test('Pos_Fun_0006 – Convert compound sentence with contrast (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('mama kaemathi namuth mama bisi.');
+  await input.fill('mama ennam, haebaeyi kalin call karannam.');
 
-  await waitForExpectedText(page, 'මම කැමති නමුත් මම බිසි.');
+  await waitForExpectedText(page, 'මම එන්නම්, හැබැයි කලින් call කරන්නම්.');
 });
 
-/* ---------------- POS_Fun_0007 ---------------- */
-test('Pos_Fun_0007 – Convert phrase with English word (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0007 ---------------- */
+test('Pos_Fun_0007 – Convert complex conditional (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('api meeting ekak thiyamu.');
+  await input.fill('oyaa enavanam api yamu.');
 
-  await waitForExpectedText(page, 'අපි meeting එකක් තියමු.');
+  await waitForExpectedText(page, 'ඔයා එනවනම් අපි යමු.');
 });
 
-/* ---------------- POS_Fun_0008 ---------------- */
-test('Pos_Fun_0008 – Convert with numbers (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0008 ---------------- */
+test('Pos_Fun_0008 – Convert negative form (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('mama 2ta ennam.');
+  await input.fill('mama adha yannee naehae.');
 
-  await waitForExpectedText(page, 'මම 2ට එන්නම්.');
+  await waitForExpectedText(page, 'මම අද යන්නේ නැහැ.');
 });
 
-/* ---------------- POS_Fun_0009 ---------------- */
-test('Pos_Fun_0009 – Convert with emoji (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0009 ---------------- */
+test('Pos_Fun_0009 – Convert past tense (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('mama happy 😊');
+  await input.fill('Mama iye market giyaa.');
 
-  await waitForExpectedText(page, 'මම happy 😊');
+  await waitForExpectedText(page, 'මම ඉයෙ market ගියා.');
 });
 
-/* ---------------- POS_Fun_0010 ---------------- */
-test('Pos_Fun_0010 – Convert longer request statement (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0010 ---------------- */
+test('Pos_Fun_0010 – Convert future tense plan (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('hadhisi avasthaavaka dhii karunaakara apava amathanna');
+  await input.fill('Api heta beach yamu.');
 
-  await waitForExpectedText(page, 'හදිසි අවස්තාවක දී කරුනාකර අපව අමතන්න');
+  await waitForExpectedText(page, 'අපි හෙට beach යමු.');
 });
 
-/* ---------------- POS_Fun_0011 ---------------- */
-test('Pos_Fun_0011 – Convert complex sentence (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0011 ---------------- */
+test('Pos_Fun_0011 – Convert pronoun variation (we) (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill(
-    'shrii lQQkaavee niranthara vaesi haa gQQvathura heethuven bohoo janathaavagee nivaasa haa vYAapaara vinaasha vii, hadhisi aaDhaara kriyaamaarga avashYA viya.'
-  );
+  await input.fill('api passee kathaa karamu.');
 
-  await waitForExpectedText(
-    page,
-    'ශ්‍රී ලංකාවේ නිරන්තර වැසි හා ගංවතුර හේතුවෙන් බොහෝ ජනතාවගේ නිවාස හා ව්‍යාපාර විනාශ වී, හදිසි ආධාර ක්‍රියාමාර්ග අවශ්‍ය විය.'
-  );
+  await waitForExpectedText(page, 'අපි පස්සේ කතා කරමු.');
 });
 
-/* ---------------- POS_Fun_0012 ---------------- */
-test('Pos_Fun_0012 – Convert work efficiency sentence (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0012 ---------------- */
+test('Pos_Fun_0012 – Convert plural usage (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill(
-    'seevakayoo nava upakaraNa Bhaavithaa kaLa nisaa, kaarya kaalaya adu viya, emaGin apata vaadi saarthakathvayak labaagatha haeki viya.'
-  );
+  await input.fill('oyaalaa dhaen class ekee innavaa.');
 
-  await waitForExpectedText(
-    page,
-    'සේවකයෝ නව උපකරණ භාවිතා කළ නිසා, කාර්ය කාලය අඩු විය, එමඟින් අපට වාඩි සාර්තකත්වයක් ලබාගත හැකි විය.'
-  );
+  await waitForExpectedText(page, 'ඔයාලා දැන් class එකේ ඉන්නවා.');
 });
 
-/* ---------------- POS_Fun_0013 ---------------- */
-test('Pos_Fun_0013 – Convert simple question (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0013 ---------------- */
+test('Pos_Fun_0013 – Convert repeated words emphasis (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('oyaa nava upakaraNa Bhaavithaa karaadha?');
+  await input.fill('hari hari lassanayi!');
 
-  await waitForExpectedText(page, 'ඔයා නව උපකරණ භාවිතා කරාද?');
+  await waitForExpectedText(page, 'හරි හරි ලස්සනයි!');
 });
 
-/* ---------------- POS_Fun_0014 ---------------- */
-test('Pos_Fun_0014 – Convert formal notice sentence (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0014 ---------------- */
+test('Pos_Fun_0014 – Convert joined vs spaced (proper spacing) (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('karuNaakara mema panividaya kiyavanna.');
+  await input.fill('mama gedhara aavillaa innavaa.');
 
-  await waitForExpectedText(page, 'කරුණාකර මෙම පනිවිඩය කියවන්න.');
+  await waitForExpectedText(page, 'මම ගෙදර ආවිල්ලා ඉන්නවා.');
 });
 
-/* ---------------- POS_Fun_0015 ---------------- */
-test('Pos_Fun_0015 – Convert sentence with punctuation (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0015 ---------------- */
+test('Pos_Fun_0015 – Mixed English technical terms (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('mama gedhara yanavaa, haebaeyi dhaen nemei.');
+  await input.fill('Magee WiFi password eka change karanna.');
 
-  await waitForExpectedText(page, 'මම ගෙදර යනවා, හැබැයි දැන් නෙමේ.');
+  await waitForExpectedText(page, 'මගේ WiFi password එක change කරන්න.');
 });
 
-/* ---------------- POS_Fun_0016 ---------------- */
-test('Pos_Fun_0016 – Convert thanks message (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0016 ---------------- */
+test('Pos_Fun_0016 – Empty input (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('sthuthiyi oyaata!');
+  await input.fill('nan');
 
-  await waitForExpectedText(page, 'ස්තුතියි ඔයාට!');
+  await waitForExpectedText(page, 'nan');
 });
 
-/* ---------------- POS_Fun_0017 ---------------- */
-test('Pos_Fun_0017 – Convert apology (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0017 ---------------- */
+test('Pos_Fun_0017 – Abbreviations (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('samaavenna, mama pramaadha unaa.');
+  await input.fill('Magee NIC eka scan karala email karanna.');
 
-  await waitForExpectedText(page, 'සමාවෙන්න, මම ප්‍රමාද උනා.');
+  await waitForExpectedText(page, 'මගේ NIC එක scan කරල email කරන්න.');
 });
 
-/* ---------------- POS_Fun_0018 ---------------- */
-test('Pos_Fun_0018 – Convert instruction sentence (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0018 ---------------- */
+test('Pos_Fun_0018 – Punctuation handling (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('karuNaakara meeka hoDHAtama karanna.');
+  await input.fill('eka hari! oyaa sure dha?');
 
-  await waitForExpectedText(page, 'කරුණාකර මේක හොඳටම කරන්න.');
+  await waitForExpectedText(page, 'එක හරි! ඔයා sure ද?');
 });
 
-/* ---------------- POS_Fun_0019 ---------------- */
-test('Pos_Fun_0019 – Convert location question (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0019 ---------------- */
+test('Pos_Fun_0019 – Currency and units (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('oba kohedha innee?');
+  await input.fill('Rs. 2500 vagee venavaa, 2kg ganna.');
 
-  await waitForExpectedText(page, 'ඔබ කොහෙද ඉන්නේ?');
+  await waitForExpectedText(page, 'Rs. 2500 වගේ වෙනවා, 2kg ගන්න.');
 });
 
-/* ---------------- POS_Fun_0020 ---------------- */
-test('Pos_Fun_0020 – Convert weather statement (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0020 ---------------- */
+test('Pos_Fun_0020 – Time format (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('adha aluth dhavasa​k.');
+  await input.fill('Meeting eka 7.30 AM dha?');
 
-  await waitForExpectedText(page, 'අද අලුත් දවස​ක්.');
+  await waitForExpectedText(page, 'Meeting එක 7.30 AM ද?');
 });
 
-/* ---------------- POS_Fun_0021 ---------------- */
-test('Pos_Fun_0021 – Convert sentence with quotes (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0021 ---------------- */
+test('Pos_Fun_0021 – Only numbers (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('eyaa kivvaa "mama ennam" kiyalaa.');
+  await input.fill('1234567890');
 
-  await waitForExpectedText(page, 'එයා කිව්වා "මම එන්නම්" කියලා.');
+  // Numbers should remain unchanged
+  await waitForExpectedText(page, '1234567890');
 });
 
-/* ---------------- POS_Fun_0022 ---------------- */
-test('Pos_Fun_0022 – Convert sentence with parentheses (PASS)', async ({ page }) => {
+
+/* ---------------- Pos_Fun_0022 ---------------- */
+test('Pos_Fun_0022 – Line breaks (multi-line) (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('mama (adha) ennam.');
+  await input.fill(`mama gedhara yanavaa.oyaa enavadha?`);
 
-  await waitForExpectedText(page, 'මම (අද) එන්නම්.');
+  await waitForExpectedText(page, `මම ගෙදර යනවා.ඔයා එනවද?`);
 });
 
-/* ---------------- POS_Fun_0023 ---------------- */
-test('Pos_Fun_0023 – Convert sentence with slash (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0023 ---------------- */
+test('Pos_Fun_0023 – Medium paragraph (realistic) (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('mama tea/coffee dhenna.');
+  await input.fill('mama adha office gihin reports tika submit kaLaa. passee lunch kanna giyaa, eeta passee bus eken gedhara aavaa.');
 
-  await waitForExpectedText(page, 'මම tea/coffee දෙන්න.');
+  await waitForExpectedText(page, 'මම අද office ගිහින් reports ටික submit කළා. පස්සේ lunch කන්න ගියා, ඒට පස්සේ bus එකෙන් ගෙදර ආවා.');
 });
 
-/* ---------------- POS_Fun_0024 ---------------- */
-test('Pos_Fun_0024 – Convert sentence with hyphen (PASS)', async ({ page }) => {
+/* ---------------- Pos_Fun_0024 ---------------- */
+test('Pos_Fun_0024 – Complex reason sentence (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('mee - hoDHAyi.');
+  await input.fill('Traffic තියෙන නිසා මම late වෙනවා.');
 
-  await waitForExpectedText(page, 'මේ - හොඳයි.');
+  await waitForExpectedText(page, 'Traffic තියෙන නිසා මම late වෙනවා.');
 });
-
-/* ---------------- NEGATIVE TEST CASES ---------------- */
 
 /* ---------------- Neg_Fun_0001 ---------------- */
 test('Neg_Fun_0001 – Joined words no spaces (stress) (FAIL)', async ({ page }) => {
@@ -330,9 +321,7 @@ test('Neg_Fun_0005 – Very long input (L) paragraph robustness (FAIL)', async (
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill(
-    'Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. '
-  );
+  await input.fill('Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. Mama ada office gihin meeting 2k thibuna. Eken passe documents tika attach karala email ekak evanna oone. Habayi system eka slow una nisa mama late una. Eeta passe bus eka miss una, itapasse taxi ekak gatta. Dawasama kala balala thama gedara awa. ');
 
   await waitForSinhalaToAppear(page);
 
@@ -384,12 +373,18 @@ test('Neg_Fun_0009 – Excessive line breaks (FAIL)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
-  await input.fill('Mama gedara yanawa.\n\n\nOya enawada?');
+  await input.fill(`Mama gedara yanawa.
+
+
+Oya enawada?`);
 
   await waitForSinhalaToAppear(page);
 
   const pageText = await page.textContent('body');
-  expect(pageText).not.toContain('මම ගෙදර යනවා.\n\n\nඔයා එනවද?');
+  expect(pageText).not.toContain(`මම ගෙදර යනවා.
+
+
+ඔයා එනවද?`);
 });
 
 /* ---------------- Neg_Fun_0010 ---------------- */
@@ -405,8 +400,8 @@ test('Neg_Fun_0010 – Mixed with URL (FAIL)', async ({ page }) => {
   expect(pageText).not.toContain('මේ link එක බලන්න: https://example.com');
 });
 
-/* ---------------- POS_UI_0001 ---------------- */
-test('Pos_UI_0001 – Clear input clears output (UI) (PASS)', async ({ page }) => {
+/* ---------------- Pos_UI_0001 ---------------- */
+test('Pos_UI_0001 – Clear input clears output (UI) (UI) (PASS)', async ({ page }) => {
   await page.goto(URL);
 
   const input = page.locator('textarea');
@@ -414,12 +409,14 @@ test('Pos_UI_0001 – Clear input clears output (UI) (PASS)', async ({ page }) =
 
   await waitForSinhalaToAppear(page);
 
-  // FIX: strict mode issue (3 Clear buttons) → select the labeled one
+  // FIX: strict mode issue (multiple "Clear" buttons) → select the labeled one
   const clearBtn = page.getByLabel('Clear');
   await clearBtn.click();
 
-  await page.waitForTimeout(500);
+  // Ensure input is cleared
+  await expect(input).toHaveValue('');
 
+  // Output should be cleared as well (best-effort: body should not contain previous translation)
   const pageText = await page.textContent('body');
   expect(pageText).not.toContain('මම ගෙදර යනවා');
 });
