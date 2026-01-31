@@ -1,52 +1,27 @@
 # ITPM_ASSIGNMENT_1_TEST_CASES
 
-Playwright tests for the Singlish → Sinhala conversion assignment.
+Playwright test cases for the **Singlish → Sinhala conversion** assignment.
+
+## Repository Link
+
+https://github.com/Mindu315/ITPM_ASSIGNMENT_1_TEST_CASES
+
+---
 
 ## Prerequisites
 
-- Node.js (v14+ recommended)
-- npm
+Make sure the following are installed on your system:
 
-## Install
+- Node.js (v14 or higher recommended)
+- npm (comes with Node.js)
 
-Install project dependencies:
+---
+
+## Installation
+
+Clone the repository and install dependencies:
 
 ```bash
+git clone https://github.com/Mindu315/ITPM_ASSIGNMENT_1_TEST_CASES
+cd ITPM_ASSIGNMENT_1_TEST_CASES
 npm install
-```
-
-## Run tests
-
-Run the full test suite with Playwright:
-
-```bash
-npx playwright test
-```
-
-Run the single spec file:
-
-```bash
-npx playwright test tests/singlish-to-sinhala.spec.js
-```
-
-Run tests in headed mode or debug if needed:
-
-```bash
-npx playwright test --headed
-npx playwright test --debug
-```
-
-## Project layout
-
-- `package.json` — project scripts and dependencies
-- `playwright.config.js` — Playwright configuration
-- `tests/` — test specs (e.g. `tests/singlish-to-sinhala.spec.js`)
-
-## Notes
-
-- Tests use Playwright; adjust `playwright.config.js` for browsers or timeouts.
-- If you see failures, run a single spec in headed mode for investigation.
-
-## Author
-
-Generated README for the assignment tests.
